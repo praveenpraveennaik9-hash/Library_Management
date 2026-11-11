@@ -1,0 +1,25 @@
+import express from "express";
+import {
+  forgotPassword,
+  getUser,
+  loginUser,
+  logoutUser,
+  registerUser,
+  resetPassword,
+  updatePassword,
+  verifyOtp,
+} from "../controllers/auth.controller.js";
+import { upload } from "../middlewares/multer.middleware.js";
+import { loginLimiter } from "../middlewares/rateLimit.middleware.js";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
+const router = express.Router();
+
+router.post("/register", upload.single("avatar"), registerUser);
+router.post("/verify-otp", verifyOtp);
+router.post("/login", loginLimiter, loginUser);
+router.post("/logout", verifyJWT, logoutUser);
+router.get("/profile", verifyJWT, getUser);
+router.post("/password/forgot", forgotPassword);
+router.put("/password/reset/:token", resetPassword);
+router.put("/password/update", verifyJWT, updatePassword);
+export default router;
