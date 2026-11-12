@@ -1,9 +1,10 @@
+
 {
   "name": "backend",
   "version": "1.0.0",
   "description": "backend",
   "license": "ISC",
-  "author": "Rajesh",
+  "author": "Praveen",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -24,7 +25,7 @@
     "mongoose": "^9.1.2",
     "multer": "^2.0.2",
     "node-cron": "^4.2.1",
-    "nodemailer": "^10.5.0",
+    "nodemailer": "^7.0.12",
     "resend": "^6.18.0"
   },
   "allowScripts": {
